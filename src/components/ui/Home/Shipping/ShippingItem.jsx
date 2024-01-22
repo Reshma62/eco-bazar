@@ -1,8 +1,8 @@
 const ShippingItem = ({ Icon, title, subtitle }) => {
   return (
-    <div className="  w-full flex gap-4 items-center ">
-      <div className="rounded-full bg-slate-200 p-4">
-        <Icon className="text-primary" size={40} />
+    <div className="group hover:border-primary transition-all  border-b-4 border-solid border-transparent pb-8 w-full flex gap-4 items-center ">
+      <div className="rounded-full bg-slate-200 group-hover:bg-primary p-4">
+        <Icon className="text-primary group-hover:text-white" size={40} />
       </div>
 
       <div>

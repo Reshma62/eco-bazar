@@ -19,7 +19,7 @@ const BannerSlider = () => {
       {arr.map((i) => (
         <SwiperSlide key={i}>
           <div
-            style={{ background: "url('/assets/Banner/banner1.svg')" }}
+            style={{ background: "url('/assets/HomePage/Banner/banner1.svg')" }}
             className="bg-no-repeat bg-cover py-36 px-12 text-white flex items-center "
           >
             <div>

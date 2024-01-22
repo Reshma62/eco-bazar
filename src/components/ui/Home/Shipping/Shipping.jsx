@@ -5,7 +5,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { TfiPackage } from "react-icons/tfi";
 const Shipping = () => {
   return (
-    <div className="flex justify-between gap-6 border-b border-solid border-[#999] py-8 mb-14">
+    <div className="flex justify-between gap-6 border-b border-solid border-[#999] pt-8 mb-14">
       <ShippingItem
         Icon={TbTruckDelivery}
         title={"Free Shipping"}
