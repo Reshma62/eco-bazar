@@ -79,7 +79,6 @@ const Promotions = () => {
             </div>
             {/* button */}
             <div className="text-center flex justify-center">
-              {" "}
               <button className="bg-white text-primary py-[14px] px-9 rounded-full font-semibold flex items-center gap-3  justify-center">
                 Shop now <FaArrowRightLong />
               </button>
