@@ -1,4 +1,4 @@
-import bg from "/public/assets/Video/videoBg.png";
+import bg from "/public/assets/HomePage/Video/videoBg.png";
 import { MdOutlinePlayCircle } from "react-icons/md";
 
 const Video = () => {

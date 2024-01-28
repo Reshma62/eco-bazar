@@ -1,6 +1,6 @@
 import Title from "../Shared/Title";
 import { Image } from "@nextui-org/react";
-import Cate1 from "/public/assets/Category/cate1.png";
+import Cate1 from "/public/assets/HomePage/Category/cate1.png";
 const Category = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (

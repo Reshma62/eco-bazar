@@ -1,6 +1,6 @@
 "use client";
 
-import product1 from "/public/assets/Products/ChaniseCabbage.png";
+import product1 from "/public/assets/HomePage/Products/ChaniseCabbage.png";
 import { Image } from "@nextui-org/react";
 import { FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import { FaBasketShopping } from "react-icons/fa6";

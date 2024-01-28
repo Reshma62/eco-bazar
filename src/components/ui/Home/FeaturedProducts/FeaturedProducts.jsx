@@ -1,7 +1,7 @@
 import Title from "../Shared/Title";
 import { Image } from "@nextui-org/react";
-import summerSale from "/public/assets/Products/summerSale.svg";
-import banner from "/public/assets/Products/banner2.svg";
+import summerSale from "/public/assets/HomePage/Products/summerSale.svg";
+import banner from "/public/assets/HomePage/Products/banner2.svg";
 import ProductCard from "../../Shop/ProductCard/ProductCard";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ProductCardSmall from "./ProductCardSmall";

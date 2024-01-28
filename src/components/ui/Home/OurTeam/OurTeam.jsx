@@ -1,9 +1,9 @@
 import Title from "../Shared/Title";
 import OurTeamCard from "./OurTeamCard";
-import team1 from "/public/assets/Team/team1.png";
-import team2 from "/public/assets/Team/team2.png";
-import team3 from "/public/assets/Team/team3.png";
-import team4 from "/public/assets/Team/team4.png";
+import team1 from "/public/assets/HomePage/Team/team1.png";
+import team2 from "/public/assets/HomePage/Team/team2.png";
+import team3 from "/public/assets/HomePage/Team/team3.png";
+import team4 from "/public/assets/HomePage/Team/team4.png";
 const OurTeam = () => {
   return (
     <section className="mb-[60px]">
