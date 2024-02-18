@@ -9,7 +9,7 @@ const Category = () => {
       <div className="container">
         <Title title={" Shop by Top Categories"} subtilte={"Category"} />
         {/* Caterory */}
-        <div className="grid grid-cols-6 gap-6 mt-9">
+        <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2  gap-6 mt-9">
           {arr.map((c) => (
             <div
               key={c}

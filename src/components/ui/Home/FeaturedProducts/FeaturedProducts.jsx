@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
         {/* products */}
         <div className="pt-8">
           {/* top product */}
-          <div className="grid grid-cols-5 gap-5">
+          <div className="grid  grid-cols-1 lg:grid-cols-5 md:grid-col-2 gap-5">
             <div className="relative">
               <Image src={summerSale.src} alt="" />
               <div className="absolute top-6 w-full left-0 right-0 z-50 text-center">
@@ -37,7 +37,7 @@ const FeaturedProducts = () => {
             <ProductCard />
           </div>
           {/* best hot deal */}
-          <div className="grid grid-cols-4 gap-5 mt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-col-2 gap-5 mt-6">
             <div className="space-y-4">
               <h2 className="text-lg font-medium text-text-color">Hot Deals</h2>
               <ProductCardSmall />

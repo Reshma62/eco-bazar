@@ -21,8 +21,8 @@ const Footer = () => {
     <footer className=" mt-[60px]">
       {/* news leetter */}
       <div className="bg-text-color">
-        <div className="container p-[60px] flex gap-[74px] items-center">
-          <div className="flex items-center gap-2">
+        <div className="container p-[60px] md:flex-row flex-col flex gap-[74px] items-center">
+          <div className="flex  items-center gap-2">
             <HiOutlineMailOpen className="text-primary" size={56} />
             <div>
               <h4 className="text-white text-2xl font-medium">
@@ -33,10 +33,10 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex md:flex-row flex-col items-center gap-6">
             <div className="relative">
               <input
-                className="w-[460px]  bg-[#333333] placeholder:text-[#999] rounded-full pl-6 py-[14px] outline-0 text-white"
+                className="md:w-[460px] w-full  bg-[#333333] placeholder:text-[#999] rounded-full pl-6 py-[14px] outline-0 text-white"
                 type="text"
                 placeholder="Your email address"
               />
@@ -44,7 +44,7 @@ const Footer = () => {
                 Subscribe
               </button>
             </div>
-            <div className="flex items-center gap-2 ">
+            <div className="flex  items-center gap-2 ">
               <div className="p-3 hover:bg-primary group rounded-full">
                 <FaFacebookF className="text-[#B3B3B3] group-hover:text-white transition duration-250" />
               </div>
@@ -64,7 +64,7 @@ const Footer = () => {
       {/* Footer logo link part */}
       <div className="bg-[#F2F2F2]">
         <div className="container p-[60px]">
-          <div className="flex justify-between">
+          <div className="flex md:flex-row flex-col justify-between">
             {/* Logo part */}
             <div className="space-y-4 max-w-[336px] w-full">
               <Link href="/" className="flex items-center gap-2 ">
@@ -142,7 +142,7 @@ const Footer = () => {
         </div>
       </div>
       {/* copy rigght */}
-      <div className="flex justify-between container py-6">
+      <div className="flex md:flex-row flex-col justify-between container py-6">
         <small> Ecobazar eCommerce © 2021. All Rights Reserved</small>
         <div className="flex justify-between gap-1 items-center">
           <Image src={apple.src} alt="" />

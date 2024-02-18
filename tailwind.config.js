@@ -19,6 +19,7 @@ module.exports = {
         "green-gray": "#002603",
         primary: "#00B207",
         "text-color": "#1A1A1A",
+        bgBlack: "#333",
       },
     },
   },

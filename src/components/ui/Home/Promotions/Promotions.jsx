@@ -11,7 +11,7 @@ const Promotions = () => {
   const [secs, setSecs] = useState("00");
   let interval = useRef();
   const startTimer = () => {
-    const countDownDate = new Date("Jan 30, 2024 00:00:00").getTime();
+    const countDownDate = new Date("Mar 30, 2025 00:00:00").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;
@@ -43,7 +43,7 @@ const Promotions = () => {
   return (
     <section>
       <div className="container">
-        <div className="flex gap-6  justify-between">
+        <div className="flex md:flex-row flex-col gap-6  justify-between">
           <div
             style={{
               background:

@@ -4,7 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { PiPhoneCallLight } from "react-icons/pi";
 const Searchbar = () => {
   return (
-    <div className="flex justify-between items-center py-5">
+    <div className="flex md:flex-row flex-col gap-5 md:gap-0 justify-between items-center py-5">
       <Link href="/" className="flex items-center gap-2 ">
         <Image src={logo.src} alt="logo" />
         <h2 className="text-[32px] text-green-gray font-medium"> Ecobazar</h2>

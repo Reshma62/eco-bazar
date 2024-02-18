@@ -5,9 +5,9 @@ import { CiApple } from "react-icons/ci";
 const Banner = () => {
   return (
     <section className="pt-6">
-      <div className="container">
+      <div className="md:container">
         <div className="grid grid-cols-12 gap-6">
-          <div className="border border-solid border-[#E6E6E6] col-span-3">
+          <div className="border border-solid border-[#E6E6E6] hidden md:col-span-3 md:block">
             {/* category list */}
             <CategoryItem Icon={CiApple} title={"Fresh Fruit"} />
             <CategoryItem Icon={CiApple} title={"Vegetables"} />
@@ -20,7 +20,7 @@ const Banner = () => {
             <CategoryItem Icon={CiApple} title={"Cooking"} />
             <CategoryItem Icon={CiApple} title={"View all Category"} />
           </div>
-          <div className="col-span-9 w-full">
+          <div className="md:col-span-9 col-span-full w-full">
             {/* slider */}
             <BannerSlider />
           </div>
