@@ -3,6 +3,7 @@ import "../globals.css";
 import { UiProviders } from "@/Providers/UiProviders";
 import Footer from "@/components/shared/footer/Footer";
 import MainHeader from "@/components/shared/header/MainHeader/MainHeader";
+import BreadCrumbs from "@/components/shared/breadCrumbs/BreadCrumbs";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <UiProviders>
           <MainHeader />
+          <BreadCrumbs />
           {children}
           <Footer />
         </UiProviders>
