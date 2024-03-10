@@ -33,7 +33,7 @@ const AllCategoriesFilter = () => {
                 type="radio"
                 name="category"
                 id={i}
-                className="grid place-content-center appearance-none bg-transparent border border-solid border-primary translate-y-[-0.075em] rounded-full w-5 h-5 before:shadow-inner before:w-3 before:h-3 before:bg-primary before:rounded-full transition-all duration-250 before:scale-0 checked:before:scale-100 focus:outline-offset-2 focus:outline-1 hover:border-green-900"
+                className="grid place-content-center appearance-none bg-transparent border border-solid border-primary translate-y-[-0.075em] rounded-full w-5 h-5 before:shadow-inner before:w-3 before:h-3 before:bg-primary before:rounded-full transition-all duration-250 before:scale-0 checked:before:scale-100  hover:border-green-900 cursor-pointer"
               />
               Vegetables
             </label>

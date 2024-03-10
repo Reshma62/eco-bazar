@@ -55,7 +55,7 @@ function PriceRangeSlider() {
           <div className="font-poppins w-full h-full flex flex-col items-center justify-center ">
             <div className="w-full">
               <div className="range-slider mb-8 mt-3 relative ">
-                <div className="range-fill h-1 bg-green-500"></div>
+                <div className="range-fill h-1 bg-primary"></div>
 
                 <input
                   type="range"

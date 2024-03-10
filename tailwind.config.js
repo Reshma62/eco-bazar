@@ -20,6 +20,7 @@ module.exports = {
         primary: "#00B207",
         "text-color": "#1A1A1A",
         bgBlack: "#333",
+        error: "#EA4B48", // red
       },
     },
   },

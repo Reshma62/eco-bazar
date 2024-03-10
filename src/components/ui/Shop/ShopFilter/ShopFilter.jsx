@@ -2,7 +2,7 @@ import Image from "next/image";
 import PriceRangeSlider from "../PriceRangeSlider/PriceRangeSlider";
 import AllCategoriesFilter from "../AllCategoriesFilter/AllCategoriesFilter";
 import PopularTag from "../PopularTag/PopularTag";
-import PromotionalSale from "../PromotionalSale/PromotionalSale";
+// import PromotionalSale from "../PromotionalSale/PromotionalSale";
 import SalesProducts from "../SalesProducts/SalesProducts";
 
 const ShopFilter = () => {
