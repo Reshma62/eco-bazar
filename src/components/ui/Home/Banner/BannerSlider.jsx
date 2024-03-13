@@ -6,6 +6,7 @@ import "./Banner.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import Link from "next/link";
 const BannerSlider = () => {
   const arr = [1, 2, 3, 4];
   return (
@@ -30,9 +31,12 @@ const BannerSlider = () => {
               <h3 className="text-2xl font-medium max-w-[170px] w-full mb-8 border-l-2 pl-3 border-solid border-primary text-white/60 uppercase tracking-[0.72px]">
                 Sale Up to <span className="text-white">48%</span> off
               </h3>
-              <button className="bg-primary py-4 px-10 rounded-full font-semibold flex items-center gap-3">
+              <Link
+                href={"/shop"}
+                className="bg-primary inline-flex py-4 px-10 rounded-full font-semibold  items-center gap-3"
+              >
                 Shop now <FaArrowRightLong />
-              </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>

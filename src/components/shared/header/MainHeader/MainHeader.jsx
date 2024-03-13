@@ -5,13 +5,18 @@ import Searchbar from "./Searchbar";
 import HomeNav from "./HomeNav";
 
 const MainHeader = () => {
-  const menuItems = [
-    { title: "Home", href: "/" },
-    { title: "About us", href: "/about-us" },
-    { title: "Shop", href: "/shop" },
-    { title: "Blog", href: "/blog" },
-    { title: "Contact us", href: "/contact-us" },
-  ];
+     const userRole = "user";
+     const menuItems = [
+       { title: "Home", href: "/" },
+       { title: "About us", href: "/about-us" },
+       { title: "Shop", href: "/shop" },
+       { title: "Blog", href: "/blog" },
+       { title: "Contact us", href: "/contact-us" },
+       {
+         title: userRole === "user" ? "My Account" : "Dashboard",
+         href: "/dashboard",
+       },
+     ];
   return (
     <header className="">
       <div className="bg-bgBlack">

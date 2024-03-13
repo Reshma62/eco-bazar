@@ -31,7 +31,9 @@ const HomeNav = ({menuItems}) => {
         <Link href={"/cart"}>
           <BsHandbag className="text-white" size={24} />
         </Link>
-        <FaRegUser className="text-white" size={24} />
+        <Link href={"/login"}>
+          <FaRegUser className="text-white" size={24} />
+        </Link>
       </div>
     </nav>
   );

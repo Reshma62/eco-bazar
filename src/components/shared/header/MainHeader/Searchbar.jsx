@@ -27,7 +27,9 @@ const Searchbar = () => {
         </button>
       </div>
       <div className="flex gap-3 items-center">
-        <FaRegUser className="text-text-color" size={24} />
+        <Link href={"/login"}>
+          <FaRegUser className="text-text-color" size={24} />
+        </Link>
         <Link href={"/wishlist"}>
           <CiHeart className="text-text-color" size={32} />
         </Link>
