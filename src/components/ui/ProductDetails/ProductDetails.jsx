@@ -4,7 +4,7 @@ import {
   FaAngleDown,
   FaAngleUp,
   FaFacebookF,
-  FaHeart,
+
   FaInstagram,
   FaPinterest,
   FaRegHeart,
@@ -134,7 +134,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-          </div>{" "}
+          </div>
           <p className="text-[#808080] my-6 border-b border-solid border-slate-200 pb-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cum
             architecto illum, ipsa explicabo rerum beatae, incidunt velit fuga

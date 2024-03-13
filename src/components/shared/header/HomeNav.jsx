@@ -25,8 +25,12 @@ const HomeNav = ({menuItems}) => {
       </ul>
 
       <div className="flex justify-end items-center gap-5 col-span-2 pr-6">
-        <CiHeart className="text-white" size={32} />
-        <BsHandbag className="text-white" size={24} />
+        <Link href={"/wishlist"}>
+          <CiHeart className="text-white" size={32} />
+        </Link>
+        <Link href={"/cart"}>
+          <BsHandbag className="text-white" size={24} />
+        </Link>
         <FaRegUser className="text-white" size={24} />
       </div>
     </nav>

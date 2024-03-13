@@ -8,7 +8,8 @@ import Shipping from "@/components/ui/Home/Shipping/Shipping";
 import Testimonials from "@/components/ui/Home/Testimonials/Testimonials";
 import Video from "@/components/ui/Home/Video/Video";
 
-export default async function Home() {
+
+const LandingPage = () => {
   return (
     <main className="container">
       <Banner />
@@ -22,4 +23,6 @@ export default async function Home() {
       <OurPartner />
     </main>
   );
-}
+};
+
+export default LandingPage;

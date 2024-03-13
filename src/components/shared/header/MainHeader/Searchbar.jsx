@@ -28,7 +28,9 @@ const Searchbar = () => {
       </div>
       <div className="flex gap-3 items-center">
         <FaRegUser className="text-text-color" size={24} />
-        <CiHeart className="text-text-color" size={32} />
+        <Link href={"/wishlist"}>
+          <CiHeart className="text-text-color" size={32} />
+        </Link>
         <div className="flex gap-3 items-center relative group cursor-pointer">
           <Badge content="5" size="md" color="primary">
             <BsHandbag className="text-text-color" size={24} />
