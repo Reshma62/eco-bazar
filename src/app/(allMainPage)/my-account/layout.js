@@ -9,7 +9,7 @@ const MyAccountLayout = ({ children }) => {
           <UserSidebar />
         </div>
 
-        <div className="col-span-9">{children}</div>
+        <div className="col-span-9 bg-red-600">{children}</div>
       </div>
     </section>
   );

@@ -1,22 +1,55 @@
 "use client";
 
+import { userData } from "@/lib/userData/userData";
+import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { BsFillEyeFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill } from "react-icons/ri";
 
 const RegisterPage = () => {
   const [showPass, setShowPass] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    const userData = {
+      userName: data.name,
+      userEmail: data.email,
+      userPassword: data.password,
+    };
+    console.log(userData);
+    //   const { data: user } = await axios.post(
+    //     "http://localhost:3000/api/auth/users",
+    //     userData
+    //   );
+    // 6ZQsBkDRbrvIo9Bl
+    const res = await fetch("/api/auth/users", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    const user = await res.json();
+    console.log(user);
+  };
+
   return (
     <section className="container">
       <div className="bg-white w-2/5 mx-auto my-20 shadow-inner border border-solid border-slate-300 rounded-xl px-5 py-4">
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <h1 className="font-semibold text-[32px] text-text-color text-center">
             Create Account
           </h1>
           <div className="relative">
             <input
+              {...register("name")}
               type="text"
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid outline-0 border-slate-400"
               placeholder="Enter name"
@@ -41,6 +74,7 @@ const RegisterPage = () => {
           </div>
           <div className="relative">
             <input
+              {...register("email")}
               type="email"
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid outline-0 border-slate-400"
               placeholder="Enter Email"
@@ -51,6 +85,7 @@ const RegisterPage = () => {
           </div>
           <div className="relative">
             <input
+              {...register("password")}
               type={`${showPass ? "text" : "password"}`}
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 outline-0 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid border-slate-400"
               placeholder="Enter password"
