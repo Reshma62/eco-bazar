@@ -2,11 +2,12 @@ import { Schema, models, model } from "mongoose";
 
 const dataSchema = new Schema(
   {
-    userEmail: String,
+    userEmail: { type: String },
 
-    userName: String,
+    userName: { type: String },
 
-    userPassword: String,
+    userPassword: { type: String },
+    userRole: { type: String, default: "user" }, //admin or user
   },
   { timestamps: true }
 );

@@ -1,7 +1,7 @@
 import dbConnect from "@/lib/database/ConnectDB";
-import generateToken from "@/lib/token/genarateToken";
+
 import User from "@/models/user.model";
-import { cookies } from "next/headers";
+
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
@@ -39,7 +39,7 @@ export async function POST(request) {
 
     await dbConnect();
     const savedUser = await new User(newUsr).save();
-    generateToken(savedUser, cookies);
+    // generateToken(savedUser, cookies);
     return NextResponse.json(
       {
         message: "User created successfully",

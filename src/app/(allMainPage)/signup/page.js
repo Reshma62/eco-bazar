@@ -1,20 +1,24 @@
 "use client";
 
-import { userData } from "@/lib/userData/userData";
-import axios from "axios";
+import usePublicAxios from "@/hooks/axios/usePublicAxios";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { BsFillEyeFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill } from "react-icons/ri";
 
 const RegisterPage = () => {
+  const axiosPublic = usePublicAxios();
+  const router = useRouter();
   const [showPass, setShowPass] = useState(false);
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
@@ -23,21 +27,18 @@ const RegisterPage = () => {
       userEmail: data.email,
       userPassword: data.password,
     };
-    console.log(userData);
-    //   const { data: user } = await axios.post(
-    //     "http://localhost:3000/api/auth/users",
-    //     userData
-    //   );
-    // 6ZQsBkDRbrvIo9Bl
-    const res = await fetch("/api/auth/users", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    const user = await res.json();
-    console.log(user);
+
+    const { data: user } = await axiosPublic.post("/auth/signup", userData);
+
+    if (user.error) {
+      toast.error(user.error);
+    }
+
+    if (user.success) {
+      toast.success(user.message);
+      reset();
+      router.push("/login");
+    }
   };
 
   return (
@@ -49,7 +50,7 @@ const RegisterPage = () => {
           </h1>
           <div className="relative">
             <input
-              {...register("name")}
+              {...register("name", { required: true })}
               type="text"
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid outline-0 border-slate-400"
               placeholder="Enter name"
@@ -72,24 +73,32 @@ const RegisterPage = () => {
               </svg>
             </div>
           </div>
+          {errors.name && (
+            <span className="text-red-500 text-xs">Name is required</span>
+          )}
           <div className="relative">
             <input
-              {...register("email")}
+              {...register("email", { required: true })}
               type="email"
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid outline-0 border-slate-400"
               placeholder="Enter Email"
             />
+
             <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
               <MdEmail />
             </div>
           </div>
+          {errors.email && (
+            <span className="text-red-500 text-xs">Email is required</span>
+          )}
           <div className="relative">
             <input
-              {...register("password")}
+              {...register("password", { required: true })}
               type={`${showPass ? "text" : "password"}`}
               className="peer py-3 px-4 ps-11 block w-full bg-gray-100 outline-0 rounded-lg text-sm focus:border-primary focus:ring-primary disabled:opacity-50 disabled:pointer-events-none  border border-solid border-slate-400"
               placeholder="Enter password"
             />
+
             <div className="absolute inset-y-0 start-0 flex items-center  ps-4 peer-disabled:opacity-50 ">
               <svg
                 className="flex-shrink-0 size-4 text-gray-500"
@@ -115,6 +124,9 @@ const RegisterPage = () => {
               )}
             </div>
           </div>
+          {errors.password && (
+            <span className="text-red-500 text-xs">Password is required</span>
+          )}
           <button
             type="submit"
             className="text-white font-medium hover:bg-transparent hover:text-primary hover:border-primary border-2 border-solid border-transparent transition text-lg bg-primary w-full rounded-full py-3 flex items-center gap-3 justify-center"
