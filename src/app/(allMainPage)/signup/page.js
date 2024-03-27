@@ -1,6 +1,7 @@
 "use client";
 
 import usePublicAxios from "@/hooks/axios/usePublicAxios";
+import { Spinner } from "@nextui-org/react";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,6 +16,7 @@ const RegisterPage = () => {
   const axiosPublic = usePublicAxios();
   const router = useRouter();
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -22,6 +24,7 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
+    setLoading(true);
     const userData = {
       userName: data.name,
       userEmail: data.email,
@@ -32,12 +35,14 @@ const RegisterPage = () => {
 
     if (user.error) {
       toast.error(user.error);
+      setLoading(false);
     }
 
     if (user.success) {
       toast.success(user.message);
       reset();
       router.push("/login");
+      setLoading(false);
     }
   };
 
@@ -108,9 +113,9 @@ const RegisterPage = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" />
                 <circle cx="16.5" cy="7.5" r=".5" />
@@ -131,7 +136,7 @@ const RegisterPage = () => {
             type="submit"
             className="text-white font-medium hover:bg-transparent hover:text-primary hover:border-primary border-2 border-solid border-transparent transition text-lg bg-primary w-full rounded-full py-3 flex items-center gap-3 justify-center"
           >
-            Create Account
+            Create Account {loading && <Spinner size="sm" />}
           </button>
           <p className="text-[#808080] text-center py-4">
             Already have account?{" "}

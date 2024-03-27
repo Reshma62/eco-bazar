@@ -1,6 +1,7 @@
 "use client";
 
 import usePublicAxios from "@/hooks/axios/usePublicAxios";
+import { Spinner } from "@nextui-org/react";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -10,10 +11,12 @@ import toast from "react-hot-toast";
 import { BsFillEyeFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { RiEyeCloseFill } from "react-icons/ri";
+
 const LoginPage = () => {
   const axiosPublic = usePublicAxios();
   const router = useRouter();
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -21,6 +24,7 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
+    setLoading(false);
     const userData = {
       userEmail: data.email,
       userPassword: data.password,
@@ -29,12 +33,14 @@ const LoginPage = () => {
     const { data: user } = await axiosPublic.post("/auth/login", userData);
     console.log(user);
     if (user.error) {
+      setLoading(false);
       toast.error(user.error);
     }
     if (user.success) {
       toast.success(user.message);
       reset();
       router.push("/");
+      setLoading(false);
     }
   };
   return (
@@ -97,7 +103,7 @@ const LoginPage = () => {
             type="submit"
             className="text-white font-medium hover:bg-transparent hover:text-primary hover:border-primary border-2 border-solid border-transparent transition text-lg bg-primary w-full rounded-full py-3 flex items-center gap-3 justify-center"
           >
-            Login
+            Login {loading && <Spinner size="sm" />}
           </button>
           <p className="text-[#808080] text-center py-4">
             Don’t have account?{" "}

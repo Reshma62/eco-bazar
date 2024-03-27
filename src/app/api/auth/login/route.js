@@ -1,9 +1,9 @@
 import dbConnect from "@/lib/database/ConnectDB";
-import generateToken from "@/lib/token/genarateToken";
 import User from "@/models/user.model";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-
+import bcrypt from "bcrypt";
+import { generateToken } from "@/lib/token/genarateToken";
 export async function POST(request) {
   try {
     const { userEmail, userPassword } = await request.json();
@@ -22,8 +22,9 @@ export async function POST(request) {
     const existsUser = await User.findOne({ userEmail: userEmail });
 
     if (existsUser) {
-      generateToken(existsUser, cookies);
-      if (existsUser.userPassword === userPassword) {
+      await generateToken(existsUser, cookies);
+      const match = await bcrypt.compare(userPassword, existsUser.userPassword);
+      if (match) {
         return NextResponse.json({
           message: "Login successfull",
           success: true,

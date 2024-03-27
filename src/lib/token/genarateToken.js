@@ -1,15 +1,28 @@
-import jwt from "jsonwebtoken";
-const generateToken = (user, cookies) => {
-  const data = {
+import { SignJWT, jwtVerify } from "jose";
+
+const generateToken = async (user, cookies) => {
+  const payload = {
     userid: user._id,
     userEmail: user.userEmail,
   };
-  const token = jwt.sign(data, "secret", { expiresIn: "24h" });
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+  const token = await new SignJWT(payload)
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setIssuer(process.env.JWT_ISSUER)
+    .setExpirationTime(process.env.JWT_EXPIRATION_TIMER)
+    .sign(secret);
+  // console.log(token);
   const oneDay = 24 * 60 * 60 * 1000;
-  const whenEx = Date.now() - oneDay;
-  cookies().set("jwtToken", token, {
-    secure: true,
-    maxAge: whenEx,
-  });
+  cookies().set("jwtToken", token, { maxAge: Date.now() - oneDay });
+  return token;
 };
-export default generateToken;
+
+const verifiToken = async (token) => {
+  const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+  const decode = await jwtVerify(token, secret);
+  // console.log(decode);
+
+  return decode["payload"];
+};
+export { generateToken, verifiToken };

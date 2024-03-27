@@ -8,7 +8,6 @@ import Shipping from "@/components/ui/Home/Shipping/Shipping";
 import Testimonials from "@/components/ui/Home/Testimonials/Testimonials";
 import Video from "@/components/ui/Home/Video/Video";
 
-
 const LandingPage = () => {
   return (
     <main className="container">
