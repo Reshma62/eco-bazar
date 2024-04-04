@@ -4,18 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaPlusSquare, FaShoppingBag } from "react-icons/fa";
-import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 import { MdDashboard } from "react-icons/md";
 import { TiThList } from "react-icons/ti";
 import {
   Accordion,
   AccordionItem,
-  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
+import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 
 const AdminSidebar = () => {
   const [toggle, setToggle] = useState(false);
@@ -79,9 +78,9 @@ const AdminSidebar = () => {
         >
           Eco - bazar
         </Link>
-        {/* <button className={``} onClick={() => setToggle(!toggle)}>
+        <button className={``} onClick={() => setToggle(!toggle)}>
           <HiOutlineBars3BottomLeft size={32} />
-        </button> */}
+        </button>
       </div>
 
       {toggle ? (

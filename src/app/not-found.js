@@ -1,4 +1,3 @@
-import { UiProviders } from "@/Providers/UiProviders";
 import Footer from "@/components/shared/footer/Footer";
 import MainHeader from "@/components/shared/header/MainHeader/MainHeader";
 import { Image } from "@nextui-org/react";

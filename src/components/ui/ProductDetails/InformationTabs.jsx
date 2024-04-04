@@ -1,8 +1,8 @@
 "use client";
 
 import { Tabs, Tab, Card, CardBody, Image } from "@nextui-org/react";
-import { FaCheckCircle, FaStarHalfAlt } from "react-icons/fa";
-import { FaPlay, FaRegStar, FaStar, FaStarHalf } from "react-icons/fa6";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaPlay, FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
 
 const InformationTabs = () => {
