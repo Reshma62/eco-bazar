@@ -19,6 +19,7 @@ const generateToken = async (user, cookies) => {
 };
 
 const verifiToken = async (token) => {
+  console.log(token);
   const secret = new TextEncoder().encode(process.env.JWT_SECRET);
   const decode = await jwtVerify(token, secret);
   // console.log(decode);

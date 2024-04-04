@@ -3,10 +3,13 @@ import { verifiToken } from "./lib/token/genarateToken";
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request) {
-  let { value } = request.cookies.get("jwtToken");
-  const isValid = verifiToken(value);
+  let token = request.cookies.get("jwtToken");
+  const value = token?.value;
 
-  if (isValid) {
+  if (value) {
+    verifiToken(value);
+  }
+  if (token) {
     return NextResponse.next();
   }
 
