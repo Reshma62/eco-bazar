@@ -1,3 +1,4 @@
+import AdminInfo from "@/components/dashboard/Admin/AdminInfo";
 import AdminSidebar from "@/components/dashboard/Admin/AdminSidebar";
 import { FaSearch } from "react-icons/fa";
 
@@ -20,11 +21,11 @@ const AdminLayout = ({ children }) => {
               </div>
             </div>
             <div>
-              <button>text</button>
+              <AdminInfo />
             </div>
           </div>
         </div>
-        <div className="px-14 mt-10">{children}</div>
+        <div className="px-14 mt-5">{children}</div>
       </main>
     </div>
   );
