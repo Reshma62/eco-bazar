@@ -159,8 +159,12 @@ const AdminSidebar = () => {
           menuItemStyles={{
             root: {
               [`&.ps-active`]: {
-                backgroundColor: "#13395e",
-                color: "#b6c8d9",
+                backgroundColor: "#00B207",
+                color: "white",
+              },
+              [`&.ps-active:hover`]: {
+                backgroundColor: "#00B207",
+                color: "white",
               },
             },
           }}
@@ -170,7 +174,6 @@ const AdminSidebar = () => {
             component={<Link href="/dashboard" />}
             active={pathName === "/dashboard"}
           >
-            {" "}
             Dashboard
           </MenuItem>
 

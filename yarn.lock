@@ -3971,6 +3971,13 @@ jiti@^1.21.0:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
+jodit-pro-react@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/jodit-pro-react/-/jodit-pro-react-4.0.6.tgz#68eebe842abbe33b51d1886b68c8e5247f3ef8dd"
+  integrity sha512-EXLVBeLZNH/uUNGFGfG1AcmVVJ+1p9ErMM5IVAyV+4JnFgRxd2NyXCMz1PcUOtQP+9gR3zuZvmkFLoP20CDjsQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 jodit-react@^4.0.15:
   version "4.0.15"
   resolved "https://registry.yarnpkg.com/jodit-react/-/jodit-react-4.0.15.tgz#183161d36177e0173b0e77f22c4491fd963b04f4"
