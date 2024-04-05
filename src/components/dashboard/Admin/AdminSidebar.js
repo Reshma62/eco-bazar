@@ -157,14 +157,16 @@ const AdminSidebar = () => {
         </Menu>
         <Menu
           menuItemStyles={{
-            root: {
-              [`&.ps-active`]: {
-                backgroundColor: "#00B207",
-                color: "white",
+            button: {
+              "&.ps-active": {
+                backgroundColor: "rgba(0, 178, 7, 1)", // Change to your desired active background color
+                color: "white", // Change to your desired active text color
+                opacity: "10",
               },
-              [`&.ps-active:hover`]: {
-                backgroundColor: "#00B207",
-                color: "white",
+
+              "&.ps-menu-button:hover": {
+                backgroundColor: "rgba(0, 178, 7, .2)", // Change to your desired active hover background color
+                color: "rgba(0, 178, 7, 1)", // Change to your desired active hover text color
               },
             },
           }}
