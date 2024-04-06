@@ -1,10 +1,12 @@
 "use client";
 import { Image, Button } from "@nextui-org/react";
-// import JoditEditor from "jodit-pro-react";
-import {  useState } from "react";
+// import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
+import dynamic from "next/dynamic";
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 const AddProducts = () => {
   const [tags, setTags] = useState([]);
-//   const [content, setContent] = useState("");
+  const [content, setContent] = useState("");
   const [userInput, setUserInput] = useState("");
 
   // Handle input onChange
@@ -12,13 +14,12 @@ const AddProducts = () => {
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
-//   const editor = useRef(null);
-//   const config = {
-//     readonly: false,
-//     showToolbar: true,
-//     toolbarButtonSize: "small",
-//   };
-//   console.log(content);
+  const editor = useRef(null);
+
+//   const config = useState({
+//     readonly: false, // all options from https://xdsoft.net/jodit/docs/,
+//     placeholder: placeholder || "Start typings...",
+//   });
 
   const handleAddTag = (newTag) => {
     if (newTag && !tags.includes(newTag)) {
@@ -75,22 +76,13 @@ const AddProducts = () => {
                   >
                     Product description
                   </label>
-                  {/* <JoditEditor
-                    className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                  <JoditEditor
                     ref={editor}
                     value={content}
-                    config={config}
+                    // config={config}
                     tabIndex={1} // tabIndex of textarea
                     onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                    // onChange={(newContent) => setContent(newContent)}
-                  /> */}
-                  {/* <input
-                    className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Type here.."
-                  /> */}
+                  />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="mb-4">
