@@ -1,5 +1,5 @@
 import DashboardCard from "@/components/dashboard/Admin/DashboardHome/DashboardCard";
-import DashbordHome from "@/components/dashboard/Admin/DashboardHome/DashbordHome";
+// import DashbordHome from "@/components/dashboard/Admin/DashboardHome/DashbordHome";
 import { FaDollarSign } from "react-icons/fa6";
 import { MdLocalShipping } from "react-icons/md";
 import { BiCategoryAlt } from "react-icons/bi";
@@ -37,7 +37,7 @@ const Dashboard = () => {
           subTitle={"$13,456.5"}
         />
       </div>
-      <DashbordHome />
+      {/* <DashbordHome /> */}
     </div>
   );
 };

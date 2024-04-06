@@ -1,10 +1,10 @@
 "use client";
 import { Image, Button } from "@nextui-org/react";
-import JoditEditor from "jodit-pro-react";
-import { useRef, useState } from "react";
+// import JoditEditor from "jodit-pro-react";
+import {  useState } from "react";
 const AddProducts = () => {
   const [tags, setTags] = useState([]);
-  const [content, setContent] = useState("");
+//   const [content, setContent] = useState("");
   const [userInput, setUserInput] = useState("");
 
   // Handle input onChange
@@ -12,13 +12,13 @@ const AddProducts = () => {
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
-  const editor = useRef(null);
-  const config = {
-    readonly: false,
-    showToolbar: true,
-    toolbarButtonSize: "small",
-  };
-  console.log(content);
+//   const editor = useRef(null);
+//   const config = {
+//     readonly: false,
+//     showToolbar: true,
+//     toolbarButtonSize: "small",
+//   };
+//   console.log(content);
 
   const handleAddTag = (newTag) => {
     if (newTag && !tags.includes(newTag)) {
@@ -75,7 +75,7 @@ const AddProducts = () => {
                   >
                     Product description
                   </label>
-                  <JoditEditor
+                  {/* <JoditEditor
                     className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
                     ref={editor}
                     value={content}
@@ -83,7 +83,7 @@ const AddProducts = () => {
                     tabIndex={1} // tabIndex of textarea
                     onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
                     // onChange={(newContent) => setContent(newContent)}
-                  />
+                  /> */}
                   {/* <input
                     className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
                     type="text"
