@@ -181,13 +181,14 @@ const AdminSidebar = () => {
 
           <SubMenu icon={<TbCategoryPlus />} defaultOpen label="Cartegories">
             <MenuItem
-              icon={<FaShoppingBag />}
+              icon={<TiThList />}
               active={pathName === "/dashboard/all-category"}
               component={<Link href="/dashboard/all-category" />}
             >
               All Category
             </MenuItem>
             <MenuItem
+              icon={<FaPlusSquare />}
               active={pathName === "/dashboard/add-category"}
               component={<Link href="/dashboard/add-category" />}
             >

@@ -1,6 +1,6 @@
 "use client";
 
-import { Image } from "@nextui-org/react";
+import { Image, Button } from "@nextui-org/react";
 import JoditEditor from "jodit-pro-react";
 import { useRef, useState } from "react";
 
@@ -40,9 +40,13 @@ const AddProducts = () => {
   console.log(tags);
   return (
     <div className="max-w-7xl ">
-      <h2 className="text-3xl text-[#495057] font-semibold mb-5">
-        Add New Product
-      </h2>
+      <div className="flex justify-between items-center mb-5">
+        <h2 className="text-3xl text-[#495057] font-semibold mb-5">
+          Add New Product
+        </h2>
+        <Button color="primary">Publish</Button>
+      </div>
+
       <form>
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-8">
@@ -51,110 +55,52 @@ const AddProducts = () => {
                 Basic Info
               </p>
               <div className="px-5">
-                <form>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="productName"
-                      className="block text-sm font-normal text-gray-700 mb-2"
-                    >
-                      Product Name
-                    </label>
-                    <input
-                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                      type="text"
-                      name=""
-                      id=""
-                      placeholder="Type here.."
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      htmlFor="productName"
-                      className="block text-sm font-normal text-gray-700 mb-2"
-                    >
-                      Product description
-                    </label>
-                    <JoditEditor
-                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                      ref={editor}
-                      value={content}
-                      config={config}
-                      tabIndex={1} // tabIndex of textarea
-                      onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                      // onChange={(newContent) => setContent(newContent)}
-                    />
-                    {/* <input
+                <div className="mb-4">
+                  <label
+                    htmlFor="productName"
+                    className="block text-sm font-normal text-gray-700 mb-2"
+                  >
+                    Product Name
+                  </label>
+                  <input
+                    className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Type here.."
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="productName"
+                    className="block text-sm font-normal text-gray-700 mb-2"
+                  >
+                    Product description
+                  </label>
+                  <JoditEditor
+                    className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                    ref={editor}
+                    value={content}
+                    config={config}
+                    tabIndex={1} // tabIndex of textarea
+                    onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                    // onChange={(newContent) => setContent(newContent)}
+                  />
+                  {/* <input
                     className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
                     type="text"
                     name=""
                     id=""
                     placeholder="Type here.."
                   /> */}
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="mb-4">
-                      <label
-                        htmlFor="productName"
-                        className="block text-sm font-normal text-gray-700 mb-2"
-                      >
-                        Regular Price
-                      </label>
-                      <input
-                        className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder="Type here.."
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label
-                        htmlFor="productName"
-                        className="block text-sm font-normal text-gray-700 mb-2"
-                      >
-                        Promotional price
-                      </label>
-                      <input
-                        className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                        type="text"
-                        name=""
-                        id=""
-                        placeholder="Type here.."
-                      />
-                    </div>
-                    <div className="mb-4">
-                      <label
-                        htmlFor="productName"
-                        className="block text-sm font-normal text-gray-700 mb-2"
-                      >
-                        Currency
-                      </label>
-                      <select
-                        className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                        defaultValue={"select your currency"}
-                        name=""
-                        id=""
-                      >
-                        <option value="bdt">BDT</option>
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                      </select>
-                      {/* <input
-                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
-                      type="text"
-                      name=""
-                      id=""
-                      placeholder="Type here.."
-                    /> */}
-                    </div>
-                  </div>
-
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="mb-4">
                     <label
                       htmlFor="productName"
                       className="block text-sm font-normal text-gray-700 mb-2"
                     >
-                      Product Name
+                      Regular Price
                     </label>
                     <input
                       className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
@@ -164,7 +110,63 @@ const AddProducts = () => {
                       placeholder="Type here.."
                     />
                   </div>
-                </form>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="productName"
+                      className="block text-sm font-normal text-gray-700 mb-2"
+                    >
+                      Promotional price
+                    </label>
+                    <input
+                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Type here.."
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="productName"
+                      className="block text-sm font-normal text-gray-700 mb-2"
+                    >
+                      Currency
+                    </label>
+                    <select
+                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                      defaultValue={"select your currency"}
+                      name=""
+                      id=""
+                    >
+                      <option value="bdt">BDT</option>
+                      <option value="usd">USD</option>
+                      <option value="eur">EUR</option>
+                    </select>
+                    {/* <input
+                      className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Type here.."
+                    /> */}
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    htmlFor="productName"
+                    className="block text-sm font-normal text-gray-700 mb-2"
+                  >
+                    Product Name
+                  </label>
+                  <input
+                    className="py-3 px-5 rounded-md border-solid border-slate-100 bg-slate-200 w-full  outline-1 outline-primary focus:border-primary"
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Type here.."
+                  />
+                </div>
               </div>
             </div>
           </div>

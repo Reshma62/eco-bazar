@@ -1,26 +1,26 @@
 import { NextResponse } from "next/server";
-import { verifiToken } from "./lib/token/genarateToken";
-
+import { cookies } from "next/headers";
 // This function can be marked `async` if using `await` inside
 export function middleware(request) {
-  let token = request.cookies.get("jwtToken");
-  const value = token?.value;
+  const path = request.nextUrl.pathname;
 
-  if (value) {
-    verifiToken(value);
-  }
-  if (token) {
-    return NextResponse.next();
+  const isPublicPath = path === "/login" || path === "/signup";
+
+  const token = cookies().get("token")?.value || "";
+
+  if (isPublicPath && token) {
+    return NextResponse.redirect(new URL("/", request.nextUrl));
   }
 
-  if (request.nextUrl.pathname.startsWith("/api/")) {
-    return NextResponse.json({ message: "unathorized access" });
-  } else {
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (!isPublicPath && !token) {
+    if (path.startsWith("/api/")) {
+      return NextResponse.json({ message: "unathorized access" });
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/dashboard", "/api/auth/users"],
+  matcher: ["/dashboard/:path*", "/api/auth/users", "/login", "/signup"],
 };

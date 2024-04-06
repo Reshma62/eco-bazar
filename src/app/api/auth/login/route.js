@@ -22,7 +22,7 @@ export async function POST(request) {
     const existsUser = await User.findOne({ userEmail: userEmail });
 
     if (existsUser) {
-      await generateToken(existsUser, cookies);
+       generateToken(existsUser, cookies);
       const match = await bcrypt.compare(userPassword, existsUser.userPassword);
       if (match) {
         return NextResponse.json({
