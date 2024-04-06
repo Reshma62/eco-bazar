@@ -1,13 +1,14 @@
-import dbConnect from "@/lib/database/ConnectDB";
 import User from "@/models/user.model";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { generateToken } from "@/lib/token/genarateToken";
+import { dbConnect } from "@/lib/database/ConnectDB";
+dbConnect();
 export async function POST(request) {
   try {
     const { userEmail, userPassword } = await request.json();
-    await dbConnect();
+
     if (!userEmail) {
       return NextResponse.json({
         error: "Email is required",
@@ -22,7 +23,7 @@ export async function POST(request) {
     const existsUser = await User.findOne({ userEmail: userEmail });
 
     if (existsUser) {
-       generateToken(existsUser, cookies);
+      generateToken(existsUser, cookies);
       const match = await bcrypt.compare(userPassword, existsUser.userPassword);
       if (match) {
         return NextResponse.json({
@@ -45,10 +46,4 @@ export async function POST(request) {
     console.error("Error creating user:", error);
     return NextResponse.json({ error: error.message }, { status: 400 });
   }
-}
-export async function GET() {
-  await dbConnect();
-  const user = await User.find({});
-
-  return NextResponse.json({ data: user }, { status: 200 });
 }

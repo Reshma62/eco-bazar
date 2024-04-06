@@ -1,12 +1,10 @@
-import dbConnect from "@/lib/database/ConnectDB";
-
+import { dbConnect } from "@/lib/database/ConnectDB";
 import User from "@/models/user.model";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
-
+dbConnect();
 export async function POST(request) {
   try {
-    await dbConnect();
     const { userEmail, userName, userPassword } = await request.json();
 
     if (!userEmail) {
@@ -50,11 +48,4 @@ export async function POST(request) {
     console.error("Error creating user:", error);
     return NextResponse.json({ error: error.message }, { status: 400 });
   }
-}
-
-export async function GET() {
-  await dbConnect();
-  const user = await User.find({});
-
-  return NextResponse.json({ data: user }, { status: 200 });
 }
